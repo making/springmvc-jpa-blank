@@ -41,7 +41,7 @@ public class PersonRepositoryTest {
 
     @Test
     public void testFindByName() {
-        Page<Person> p = personRepository.findByNameLike("name1", new PageRequest(
+        Page<Person> p = personRepository.findByNameLike("%name1%", new PageRequest(
                 0, 5));
         System.out.println(p.getContent());
         assertNotNull(p);

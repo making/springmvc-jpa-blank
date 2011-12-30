@@ -15,15 +15,15 @@ import com.example.mvc.repository.PersonRepository;
 import com.example.mvc.service.PersonService;
 
 @Service
-public class PersonServiceImple implements PersonService {
+public class PersonServiceImpl implements PersonService {
     @Inject
     protected PersonRepository personRepository;
 
     @Override
     @Transactional(readOnly = true)
     public Page<Person> findAll(int page, int size) {
-        Pageable pageable = new PageRequest(page, size, new Sort(Direction.DESC,
-                "id"));
+        Pageable pageable = new PageRequest(page, size, new Sort(
+                Direction.DESC, "id"));
         Page<Person> persons = personRepository.findAll(pageable);
         return persons;
     }
@@ -31,9 +31,10 @@ public class PersonServiceImple implements PersonService {
     @Override
     @Transactional(readOnly = true)
     public Page<Person> findByNameLike(String name, int page, int size) {
-        Pageable pageable = new PageRequest(page, size, new Sort(Direction.DESC,
-                "id"));
-        Page<Person> persons = personRepository.findByNameLike(name, pageable);
+        Pageable pageable = new PageRequest(page, size, new Sort(
+                Direction.DESC, "id"));
+        String q = "%" + name + "%";
+        Page<Person> persons = personRepository.findByNameLike(q, pageable);
         return persons;
     }
 
