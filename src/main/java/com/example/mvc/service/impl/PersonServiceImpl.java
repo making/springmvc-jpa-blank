@@ -40,21 +40,21 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     @Transactional(readOnly = true)
-    public Person findPersonById(Integer id) {
+    public Person findById(Integer id) {
         Person person = personRepository.findOne(id);
         return person;
     }
 
     @Override
     @Transactional
-    public void insert(Person person) {
-        personRepository.save(person);
+    public Person insert(Person person) {
+        return personRepository.save(person);
     }
 
     @Override
     @Transactional
-    public void update(Person person) {
-        personRepository.save(person);
+    public Person update(Person person) {
+        return personRepository.save(person);
     }
 
     @Override

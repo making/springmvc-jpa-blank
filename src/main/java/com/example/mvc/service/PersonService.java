@@ -9,11 +9,11 @@ public interface PersonService {
 
     Page<Person> findByNameLike(String name, int page, int size);
 
-    Person findPersonById(Integer id);
+    Person findById(Integer id);
 
-    void insert(Person person);
+    Person insert(Person person);
 
-    void update(Person person);
+    Person update(Person person);
 
     void deleteById(Integer id);
 

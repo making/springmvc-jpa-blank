@@ -62,7 +62,7 @@ public class PersonController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String edit(@PathVariable("id") Integer id, Model model) {
-        Person person = personService.findPersonById(id);
+        Person person = personService.findById(id);
         model.addAttribute(person);
         return "/person/form";
     }
