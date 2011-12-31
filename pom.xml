@@ -190,13 +190,7 @@
             <version>1.2</version>
         </dependency>
 
-        <!-- JDBC -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.17</version>
-        </dependency>
-
+        <!-- DBCP -->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -234,7 +228,49 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>mysql</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <resource.directory>${basedir}/src/main/mysql</resource.directory>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>5.1.17</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>postgresql</id>
+            <properties>
+                <resource.directory>${basedir}/src/main/postgresql</resource.directory>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <version>8.4-702.jdbc3</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <directory>${resource.directory}</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>

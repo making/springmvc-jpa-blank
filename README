@@ -1,1 +1,14 @@
 Web App Example Using Spring MVC & Spring Data JPA
+
+for MyMQL(default)
+
+$ mvn clean test -P mysql
+$ mvn clean eclipse:clean eclipse:eclipse -P mysql
+
+for PostgreSQL
+
+$ mvn clean test -P postgresql
+$ mvn clean eclipse:clean eclipse:eclipse -P postgresql
+
+
+tested only on Tomcat7 (not use JTA)

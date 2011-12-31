@@ -13,24 +13,17 @@
     <context:property-placeholder
         location="classpath*:META-INF/spring/*.properties" />
 
-    <bean class="org.apache.commons.dbcp.BasicDataSource"
-        destroy-method="close" id="dataSource">
-        <property name="driverClassName" value="${database.driverClassName}" />
-        <property name="url" value="${database.url}" />
-        <property name="username" value="${database.username}" />
-        <property name="password" value="${database.password}" />
-        <property name="testOnBorrow" value="true" />
-        <property name="testOnReturn" value="true" />
-        <property name="testWhileIdle" value="true" />
-        <property name="timeBetweenEvictionRunsMillis" value="1800000" />
-        <property name="numTestsPerEvictionRun" value="3" />
-        <property name="minEvictableIdleTimeMillis" value="1800000" />
-        <property name="defaultAutoCommit" value="false" />
-    </bean>
+    <import resource="database.xml"/>
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager"
         id="transactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <bean id="jpaVendorAdapter"
+        class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="false" />
+        <property name="database" value="${database}" />
     </bean>
 
     <bean
@@ -38,10 +31,8 @@
         id="entityManagerFactory">
         <property name="persistenceUnitName" value="persistenceUnit" />
         <property name="dataSource" ref="dataSource" />
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
     </bean>
-
-    <bean
-        class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
     <jpa:repositories base-package="com.example.mvc.repository" />
 </beans>
