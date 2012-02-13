@@ -215,9 +215,6 @@
     <profiles>
         <profile>
             <id>mysql</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <resource.directory>${database.dir}/mysql</resource.directory>
             </properties>
@@ -249,6 +246,9 @@
             <properties>
                 <resource.directory>${database.dir}/h2</resource.directory>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>com.h2database</groupId>
@@ -271,6 +271,13 @@
                     <scope>runtime</scope>
                 </dependency>
             </dependencies>
+        </profile>
+
+        <profile>
+            <id>postgresql_jta</id>
+            <properties>
+                <resource.directory>${database.dir}/postgresql_jta</resource.directory>
+            </properties>
         </profile>
     </profiles>
 

@@ -4,39 +4,44 @@
         <spring:hasBindErrors name="person">
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $("div.clearfix>div.input>.error").parent().parent().addClass("error");
+                    $("div.control-group>div.controls>.error").parent().parent().addClass("error");
                 });
             </script>
         </spring:hasBindErrors>
-        <form:form method="post" action="." modelAttribute="person">
-            <div class="clearfix">
-                <label for="name">name</label>
-                <div class="input">
-                    <form:input path="name" cssClass="span5"
-                        cssErrorClass="error" />
-                    <form:errors path="name"
-                        cssClass="error help-inline inline"
-                        element="span" />
+        <form:form method="post" action="." modelAttribute="person"
+            cssClass="form-horizontal">
+            <fieldset>
+                <legend>Person</legend>
+                <div class="control-group">
+                    <label class="control-label" for="name">name</label>
+                    <div class="controls">
+                        <form:input path="name" cssClass="span5"
+                            cssErrorClass="error" />
+                        <form:errors path="name"
+                            cssClass="error help-inline inline"
+                            element="span" />
+                    </div>
                 </div>
-            </div>
-            <div class="clearfix">
-                <label for="age">age</label>
-               <div class="input">
-                    <form:input path="age" cssClass="span3"
-                        cssErrorClass="error" />
-                    <form:errors path="age"
-                        cssClass="error help-inline inline"
-                        element="span" />
+                <div class="control-group">
+                    <label class="control-label" for="age">age</label>
+                    <div class="controls">
+                        <form:input path="age" cssClass="span3"
+                            cssErrorClass="error" />
+                        <form:errors path="age"
+                            cssClass="error help-inline inline"
+                            element="span" />
+                    </div>
                 </div>
-            </div>
-            <form:hidden path="id" />
-            <div class="actions">
-                <input type="submit" class="btn primary" value="Submit">&nbsp;
-                <button type="reset" class="btn">Cancel</button>
-            </div>
+                <form:hidden path="id" />
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-primary"
+                        value="Submit">&nbsp;
+                    <button type="reset" class="btn">Cancel</button>
+                </div>
+            </fieldset>
         </form:form>
         <hr>
-        <a href='<c:url value="/person/list" />' class="btn">list</a>
+        <a href='${contextRoot}/person/list' class="btn">list</a>
     </c:param>
 </c:import>
 

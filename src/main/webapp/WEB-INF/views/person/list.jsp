@@ -2,9 +2,10 @@
     <c:param name="title" value="PERSON LIST" />
     <c:param name="body">
         <p>
-        <a href='<c:url value="/person/form/" />' class="btn">CREATE</a>
+            <a href='${contextRoot}/person/form/' class="btn btn-info">CREATE</a>
         </p>
-        <table class="zebra-striped">
+        <table
+            class="table table-striped table-bordered table-condensed">
             <tr>
                 <th>ID</th>
                 <th>NAME</th>
@@ -17,9 +18,9 @@
                     <td>${f:h(person.name)}</td>
                     <td>${f:h(person.age)}</td>
                     <td><a
-                        href='<c:url value="/person/edit/${person.id}" />'
-                        class="btn primary">編集</a> <a
-                        href='<c:url value="/person/delete/${person.id}" />'
+                        href='${contextRoot}/person/edit/${person.id}'
+                        class="btn btn-primary">編集</a> <a
+                        href='${contextRoot}/person/delete/${person.id}'
                         class="btn">削除</a></td>
                 </tr>
             </c:forEach>
