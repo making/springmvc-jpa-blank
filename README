@@ -24,3 +24,8 @@ tested only on Tomcat7 (not use JTA)
 
 $ mvn clean tomcat7:run -P h2
 access http://localhost:8080/springmvc-jpa-blank
+
+
+you can use as archetype
+
+$ mvn archetype:generate -DarchetypeRepository=http://dl.dropbox.com/u/342817/maven/releases -DarchetypeGroupId=am.ik.archetype -DarchetypeArtifactId=springmvc-jpa-blank-archetype
