@@ -6,9 +6,9 @@
             ${f:h(serverTime)} <br>
         </p>
         <ul>
-            <li><a href='<c:url value="/person/list" />'>PERSON
+            <li><a href='${contextRoot}/person/list/'>PERSON
                     LIST</a></li>
-            <li><a href='<c:url value="/person/form/" />'>PERSON
+            <li><a href='${contextRoot}/person/form/'>PERSON
                     CREATE</a></li>
         </ul>
     </c:param>
