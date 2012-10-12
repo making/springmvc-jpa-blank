@@ -34,6 +34,7 @@ public class PersonServiceImplTest {
 
     @Before
     public void setUp() throws Exception {
+        personRepository.deleteAll();
         for (int i = 1; i <= 20; i++) {
             Person p = new Person();
             p.setAge(i % 100);

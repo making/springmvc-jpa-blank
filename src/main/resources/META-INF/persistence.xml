@@ -5,6 +5,8 @@
     <persistence-unit name="persistenceUnit"
         transaction-type="RESOURCE_LOCAL">
         <properties>
+            <property name="hibernate.jdbc.batch_size" value="30" />
+            <property name="hibernate.use_sql_comments" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.ejb.naming_strategy"
                 value="org.hibernate.cfg.ImprovedNamingStrategy" />

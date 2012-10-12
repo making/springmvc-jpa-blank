@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-    href='${contextRoot}/css/bootstrap/bootstrap.min.css'>
+    href='${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css'>
 <script type="text/javascript"
-    src='${contextRoot}/js/jquery-1.7.1.min.js'></script>
+    src='${pageContext.request.contextPath}/js/jquery-1.7.1.min.js'></script>
 <title>${param.title}</title>
 <style type="text/css">
 html,body {
@@ -51,7 +51,7 @@ html,body {
         <div class="content">
             <div class="page-header">
                 <h1>
-                    <a href='<c:url value="/"/>'>Spring MVC JPA
+                    <a href='${pageContext.request.contextPath}'>Spring MVC JPA
                         Blank App</a>
                 </h1>
             </div>

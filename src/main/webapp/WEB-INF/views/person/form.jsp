@@ -41,7 +41,7 @@
             </fieldset>
         </form:form>
         <hr>
-        <a href='${contextRoot}/person/list' class="btn">list</a>
+        <a href='${pageContext.request.contextPath}/person/list' class="btn">list</a>
     </c:param>
 </c:import>
 
