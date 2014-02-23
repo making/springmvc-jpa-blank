@@ -1,4 +1,4 @@
-** This project is obsolete! **
+**This project is obsolete!**
 
 Please refer https://github.com/terasolunaorg/terasoluna-gfw-web-blank
 
