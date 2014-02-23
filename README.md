@@ -1,3 +1,10 @@
+** This project is obsolete! **
+
+Please refer https://github.com/terasolunaorg/terasoluna-gfw-web-blank
+
+
+----
+
 Web App Example Using Spring MVC & Spring Data JPA
 
 for MySQL(default)
