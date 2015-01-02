@@ -27,13 +27,10 @@ public class PersonController {
     @Inject
     protected PersonService personService;
 
-    protected static final Logger LOGGER = LoggerFactory
-            .getLogger(PersonController.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
 
     @RequestMapping(value = "/list")
-    public String list(
-            @RequestParam(value = "page", required = false) Integer page,
-            Model model) {
+    public String list( @RequestParam(value = "page", required = false) Integer page,Model model) {
         int pageNum = page != null ? page : DEFAULT_PAGE_NUM;
         Page<Person> paging = personService.findAll(pageNum, DEFAULT_PAGE_SIZE);
         model.addAttribute("page", paging);
