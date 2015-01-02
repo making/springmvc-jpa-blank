@@ -22,8 +22,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     @Transactional(readOnly = true)
     public Page<Person> findAll(int page, int size) {
-        Pageable pageable = new PageRequest(page, size, new Sort(
-                Direction.DESC, "id"));
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.DESC, "id"));
         Page<Person> persons = personRepository.findAll(pageable);
         return persons;
     }
